@@ -53,9 +53,9 @@ class Main extends PluginBase implements Listener{
 					#make and give the custom bank note and reduce playermoney
 					EconomyAPI::getInstance()->reduceMoney($player, $amount);
 					$note = Item::get(339, 0, 1);
-					$note->setCustomName(C::RESET.C::YELLOW."$".C::GOLD.$amount.C::YELLOW." note");
+					$note->setCustomName(C::RESET.C::YELLOW."§b$§3".C::GOLD.$amount.C::YELLOW." §anote");
 					$note->setLore([
-					C::RESET.C::DARK_RED."Right-Click ".C::RED."to claim this note",
+					C::RESET.C::DARK_RED."§4Right-Click this note".C::RED."§cto claim money!",
 					C::RESET.C::RED.$amount
 					]);
 					$sender->getInventory()->addItem($note);
@@ -111,7 +111,7 @@ class Main extends PluginBase implements Listener{
 		$hand = $inv->getItemInHand();
 		$lore = $hand->getlore();
 		if (!empty($lore)) {
-			if(C::clean($lore[0]) == 'Right-Click to claim this note'){
+			if(C::clean($lore[0]) == '§cRight-Click to claim this note'){
 				$dep = (int)C::clean($lore[1]);
 				EconomyAPI::getInstance()->addMoney($name, $dep);
 				$hand->setCount($hand->getCount() - 1);
