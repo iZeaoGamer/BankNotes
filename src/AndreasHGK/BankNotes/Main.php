@@ -134,8 +134,8 @@ class Main extends PluginBase implements Listener{
 				case "Trapped Chest":
 				case "Wooden Trapdoor":
 				case "Bed":
-					#$p->sendMessage(C::RED.C::BOLD."Error: ".C::RESET.C::GRAY."you are not allowed to place this item in an item frame.");
-					#$event->setCancelled();
+					$p->sendMessage(C::RED.C::BOLD."Error: ".C::RESET.C::GRAY."you are not allowed to place this item in an item frame.");
+					$event->setCancelled();
 					break;
 				default:
 				$dep = (int)C::clean($lore[1]);
